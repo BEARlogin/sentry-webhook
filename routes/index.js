@@ -4,6 +4,7 @@ const TelegramBot = require('node-telegram-bot-api');
 /* GET home page. */
 router.post('/webhook', async function (req, res, next) {
     const bot = new TelegramBot(process.env.BOT_TOKEN);
+    console.log(JSON.stringify(req.body));
     const issue = req.body.data.issue;
     const message = `
 Issue: ${issue.title}    \n
