@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const TelegramBot = require('node-telegram-bot-api');
 /* GET home page. */
-router.get('/webhook', async function (req, res, next) {
+router.post('/webhook', async function (req, res, next) {
     const bot = new TelegramBot(process.env.BOT_TOKEN);
     const issue = req.body.data.issue;
     const message = `
