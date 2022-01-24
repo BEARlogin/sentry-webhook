@@ -28,7 +28,7 @@ link:  ${data.url} \n
 router.post('/webhook', async function (req, res, next) {
     const bot = new TelegramBot(process.env.BOT_TOKEN);
     let message = '';
-    if (req.body.event) {
+    if (req.body.event || req.body.event_type)  {
         message = createEventMessage(req);
         await bot.sendMessage(process.env.CHAT_ID, message, {
             parse_mode: "HTML",
