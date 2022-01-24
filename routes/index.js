@@ -7,11 +7,13 @@ function createEventMessage(req) {
     const data = req.body;
     const event = req.body.event;
 
-    if(event.event_type) {
+    console.log(req.body)
+
+    if(req.body.event_type) {
         return `
-Issue: ${event.title}    \n
-Body: ${event.body} \n
-Type:  ${data.event_type} \n
+Issue: ${req.body.title}    \n
+Body: ${req.body.body} \n
+Type:  ${req.body.event_type} \n
     `;
     }
 
@@ -25,7 +27,6 @@ link:  ${data.url} \n
 /* GET home page. */
 router.post('/webhook', async function (req, res, next) {
     const bot = new TelegramBot(process.env.BOT_TOKEN);
-    console.log(JSON.stringify(req.body));
     let message = '';
     if (req.body.event) {
         message = createEventMessage(req);
