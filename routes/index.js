@@ -6,6 +6,15 @@ const TelegramBot = require('node-telegram-bot-api');
 function createEventMessage(req) {
     const data = req.body;
     const event = req.body.event;
+
+    if(event.event_type) {
+        return `
+Issue: ${event.title}    \n
+Body: ${event.body} \n
+Type:  ${data.event_type} \n
+    `;
+    }
+
     return `
 Issue: ${event.title}    \n
 Project: ${data.project_slug} \n
