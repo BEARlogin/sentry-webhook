@@ -12,7 +12,6 @@ function createEventMessage(req) {
     if(req.body.event_type) {
         return `
 Issue: ${req.body.title}    \n
-Body: ${req.body.body} \n
 Type:  ${req.body.event_type} \n
     `;
     }
