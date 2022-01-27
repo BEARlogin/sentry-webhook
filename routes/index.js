@@ -19,6 +19,7 @@ Type:  ${req.body.event_type} \n
     return `
 Issue: ${event.title}    \n
 Project: ${data.project_slug} \n
+Env: ${event.environment} \n
 link:  ${data.url} \n
     `;
 }
