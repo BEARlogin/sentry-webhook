@@ -32,7 +32,7 @@ router.post('/webhook', async function (req, res, next) {
         message = createEventMessage(req);
         await bot.sendMessage(process.env.CHAT_ID, message, {
             parse_mode: "HTML",
-            disable_notification: req.body.event && req.body.event.event.environment === 'staging'
+            disable_notification: req.body.event && ['staging','debug'].includes(req.body.event.event.environment)
         })
     }
 
